@@ -1,0 +1,1 @@
+web: gunicorn bug_killer.wsgi:application
