@@ -25,7 +25,7 @@ SECRET_KEY = '6l)m(bnz5d!(*snupo4jo81*a_qq7)9gge(9+&+e*t+_vc*os&'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['bug-killer-simonscode1.c9users.io']
+ALLOWED_HOSTS = [os.environ.get('C9_HOSTNAME')]
 
 
 # Application definition
@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django_forms_bootstrap',
-    'bug',
+    'posts',
+    'bug'
 ]
 
 MIDDLEWARE = [
