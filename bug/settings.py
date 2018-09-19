@@ -45,6 +45,8 @@ INSTALLED_APPS = [
     'django_forms_bootstrap',
     'posts',
     'accounts',
+    'products',
+    'cart',
     'bug'
 ]
 
@@ -73,6 +75,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'django.template.context_processors.media',
+                'cart.contexts.cart_contents'
             ],
         },
     },
@@ -119,6 +122,8 @@ AUTH_PASSWORD_VALIDATORS = [
 
 AUTHENTICATION_BACKENDS =[
     'django.contrib.auth.backends.ModelBackend',
+    'accounts.backends.EmailAuth',
+    #'accounts.backends.CaseInsensitiveAuth',
     ]
 
 # Internationalization
@@ -146,3 +151,11 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 MESSAGE_STORAGE = "django.contrib.messages.storage.session.SessionStorage"
+
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmai.com'
+EMAIL_HOST_USER = os.environ.get("EMAIL_ADDRESS")
+EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_PASSWORD")
+EMAIL_PORT = 587
+
+# EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
