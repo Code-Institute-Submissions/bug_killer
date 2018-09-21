@@ -35,6 +35,6 @@
 <div class="row">
     <p>Total</p>
     <p><span class="glyhicon glyhicon-euro" aril-hidden="true"></span>{{ total }}</p>
-    <a href="/" class="btn btn-success" role="button"><span class="glyhicon glyhicon-ok-sign" aril-hidden="true"></span>Checkout</a>
+    <a href="{% url 'checkout' %}" class="btn btn-success" role="button"><span class="glyhicon glyhicon-ok-sign" aril-hidden="true"></span>Checkout</a>
 </div>
 {% endblock %}
