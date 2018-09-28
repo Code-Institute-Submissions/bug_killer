@@ -4,7 +4,7 @@ def view_cart(request):
     return render(request, "cart.html")
 
 def add_to_cart(request, id):
-    quantity=int(request.POST.get('quantity'))
+    quantity = int(request.POST.get('quantity'))
     
     cart = request.session.get('cart', {})
     cart[id] = cart.get(id, quantity)
