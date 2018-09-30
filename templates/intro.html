@@ -1,0 +1,38 @@
+{% extends 'base.html' %}{% block intro %}
+<div id="masthead">
+        <div class="container">
+            <div class="row">
+                <h1> Superhero Bug Killing Team
+                    <p id="logo" class="lead">When all is lost and the world is coming to an end. Call apon the superhero bug killing team to solve your problem</p>
+                </h1>
+            </div>
+        </div>
+    </div>
+<div class="card-deck">
+  <div class="card">
+    <img class="card-img-top" src="static/img/simple_bug.png" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">Basic issue solver</h5>
+      <p class="card-text">We prodive a free check of your code but will be put into a qenue.</p>
+      <a href="{% url 'products' %}" class="btn btn-primary" role="button" aria-pressed="true">Products</a>
+    </div>
+  </div>
+  <div class="card">
+    <img class="card-img-top" src="static/img/superhero.jpg" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">Super Fast Response</h5>
+      <p class="card-text">A paid superhero is even a faster superhero for fixing code.</p>
+      <a href="{% url 'products' %}" class="btn btn-danger" role="button" aria-pressed="true">Products</a>
+    </div>
+  </div>
+  <div class="card">
+    <img class="card-img-top" src="static/img/ironman.jpg" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">View your Profile</h5>
+      <p class="card-text">All of your issues that are been looked at can be found here. 
+          Any that have been solved will remain here for future use making an unstoppable Superhero coder.</p>
+      <button type="button" class="btn btn-success">Success</button>
+    </div>
+  </div>
+</div>
+{% endblock %}

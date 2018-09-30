@@ -27,9 +27,11 @@ from checkout import urls as urls_checkout
 from accounts.views import index
 from products.views import all_products
 from .settings import MEDIA_ROOT
+from bug.views import get_intro
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^$', get_intro, name='get_intro'),
     url(r'^$', RedirectView.as_view(url='posts/')),
     url(r'^posts/', include('posts.urls')),
     url(r'^$', index, name="index"),
