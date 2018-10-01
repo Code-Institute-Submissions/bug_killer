@@ -1,4 +1,4 @@
 from django.shortcuts import render, get_object_or_404, redirect
 
-def get_intro(request):
-    return render(request, "intro.html")
+def get_home(request):
+    return render(request, "home.html")

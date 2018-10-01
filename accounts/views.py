@@ -3,6 +3,10 @@ from django.contrib import auth, messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from accounts.forms import UserLoginForm, UserRegistrationForm
+from django.utils import timezone
+
+# Import the Post model from posts app
+from posts.models import Post
 
 def index(request):
     return render(request, 'index.html')
@@ -56,4 +60,5 @@ def registration(request):
 
 def user_profile(request):
     user = User.objects.get(email=request.user.email)
-    return render(request, 'profile.html', {"profile": user})
+    user_posts = Post.objects.filter(author=user)
+    return render(request, 'profile.html', {"profile": user, 'user_posts': user_posts})

@@ -1,10 +1,9 @@
-{% extends 'base.html' %}{% block intro %}
+{% extends 'base.html' %}{% block home %}
 <div id="masthead">
         <div class="container">
             <div class="row">
-                <h1> Superhero Bug Killing Team
-                    <p id="logo" class="lead">When all is lost and the world is coming to an end. Call apon the superhero bug killing team to solve your problem</p>
-                </h1>
+                <h1 id="homeh1"> Superhero Bug Killing Team</h1>
+                  <p id="logo homep1" class="lead">When all is lost and the world is coming to an end. Call apon the superhero bug killing team to solve your problem</p>
             </div>
         </div>
     </div>
@@ -31,7 +30,10 @@
       <h5 class="card-title">View your Profile</h5>
       <p class="card-text">All of your issues that are been looked at can be found here. 
           Any that have been solved will remain here for future use making an unstoppable Superhero coder.</p>
-      <button type="button" class="btn btn-success">Success</button>
+      <form method="POST">
+        {% csrf_token %} {{ login_form }}
+        <button href="{% url 'login' %}" type="submit" class="btn btn-success">Login</button>
+      </form>
     </div>
   </div>
 </div>

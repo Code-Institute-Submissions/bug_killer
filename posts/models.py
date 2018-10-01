@@ -1,7 +1,11 @@
 from django.db import models
 from django.utils import timezone
 
+# This matches up w/ line 8 when you create the foreignkey
+from django.contrib.auth.models import User
+
 class Post(models.Model):
+    author = models.ForeignKey(User, null=True, blank=True)
     title = models.CharField(max_length=200)
     content = models.TextField()
     created_date = models.DateTimeField(auto_now_add=True)
