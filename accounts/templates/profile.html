@@ -1,32 +1,29 @@
-{% extends 'base.html' %}
-
-{% block page_title %}{{user}}'s Profile{%endblock%}
-
-{% block page_heading %}{{user}}'s Profile{% endblock %}
-
-{% block content %}
-<p>{{ profile.email }}</p>
-    {% for post in user_posts %}
-                <div class="row">
-            <div class="col-md-2 col-sm-3 text-center">
-                <a class="story-img" href="#">
-                    <img src="/media/img/profile.jpg" class="img-circle">
-                </a>
-                <p><span class="boldtext">Author:</span></p>
-            </div>
-            <div class="col-md-10 col-sm-9">
-                <h3>{{ post.title }}</h3>
-                <div class="row">
-                    <div class="col-xs-9">
-                        <p>{{ post.content|truncatewords:30 }}</p>
-                        <p><a href="{% url 'post_detail' post.id %}" class="btn btn-default">Read more</a></p>
-                        <p><span class="boldtext">Published on:</span> {{ post.published_date }} </p>
-                        <p><span class="boldtext">Views:</span> {{post.views}}</p>
-                        <p><span class="boldtext">Tag:</span> {{ post.tag }}</p>
-                    </div>
-                </div>
-            </div>
-            <hr>
+{% extends 'base.html' %} {% block page_title %}{{user}}'s Profile{%endblock%} {% block page_heading %}{{user}}'s Profile{% endblock %} {% block content %}
+<div class="container">
+    
+    <i class="far fa-user"></i><p>{{ profile.email }}</p>
+    
+</div>
+{% for post in user_posts %}
+<div class="accordion" id="accordionExample">
+    <div class="card">
+        <div class="card-header" id="headingOne">
+            <h5 class="mb-0">
+                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          {{ post.title }}: {{ post.author }} 
+        </button>
+            </h5>
         </div>
-    {% endfor %}
-{% endblock %}
+
+        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+            <div class="card-body">
+                <p>{{ post.content|truncatewords:30 }}</p>
+                <p><a href="{% url 'post_detail' post.id %}" class="btn btn-default">Read more</a></p>
+                <p><span class="boldtext">Published on:</span> {{ post.published_date }} </p>
+                <p><span class="boldtext">Views:</span> {{post.views}}</p>
+                <p><span class="boldtext">Tag:</span> {{ post.tag }}</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %} {% endblock %}

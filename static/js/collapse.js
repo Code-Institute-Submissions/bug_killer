@@ -1,0 +1,3 @@
+$('Collapsible').collapse({
+    toggle: true
+    });
