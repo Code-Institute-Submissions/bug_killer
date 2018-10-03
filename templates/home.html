@@ -1,12 +1,21 @@
-{% extends 'base.html' %}{% block home %}
-<div id="masthead">
-        <div class="container">
-            <div class="row">
-                <h1 id="homeh1"> Superhero Bug Killing Team</h1>
-                  <p id="logo homep1" class="lead">When all is lost and the world is coming to an end. Call apon the superhero bug killing team to solve your problem</p>
-            </div>
-        </div>
-    </div>
+{% extends 'base.html' %}
+{% load static from staticfiles %}
+{% load bootstrap_tags %}
+{% block home %}
+<div class="jumbotron">
+  <h1 class="display-4">Superhero Bug Killing Team</h1>
+  <p class="lead">When all is lost and the world is coming to an end. Call apon the superhero bug killing team to solve your problem.</p>
+  <hr class="my-4">
+  <p>Sign in and register your first issue.</p>
+  {% if user.is_authenticated %}
+  <a class="btn btn-primary btn-lg" href="{% url 'profile' %}" role="button">Profile</a>
+  <a class="btn btn-primary btn-lg" href="{% url 'logout' %}" role="button">Logout</a>
+  {% else %}
+  <a class="btn btn-primary btn-lg" href="{% url 'login' %}" role="button">Login</a>
+  <a class="btn btn-primary btn-lg" href="{% url 'register' %}" role="button">Register</a>
+  {% endif %}
+</div>
+    
 <div class="card-deck">
   <div class="card">
     <img class="card-img-top" src="static/img/simple_bug.png" alt="Card image cap">
