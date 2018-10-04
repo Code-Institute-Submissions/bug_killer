@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 from accounts.forms import UserLoginForm, UserRegistrationForm
 from django.utils import timezone
 from django.template.context_processors import csrf
+from django.contrib import messages
 
 # Import the Post model from posts app
 from posts.models import Post
