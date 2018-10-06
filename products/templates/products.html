@@ -1,23 +1,21 @@
 {% extends 'base.html' %}
 {% load static from staticfiles %}
-{% load bootstrap_tags %}
-{% block content %}
-
-<div class="row row-flex">
+{% load bootstrap_tags %} 
+{% block content %} 
 {% for product in products %}
-<div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-6 col-md-4 display
-            panel panel-default">
-    <div class="panel-body">
-        <div class="product" style="background-image: url('{{ MEDIA_URL }}{{ product.image}}')"></div>
-        
-        <h3>{{ product.name }}</h3>
-        <p class="product-description">{{ product.description }}</p>
+
+<div class="jumbotron jumbotron-fluid" id="products">
+    <div class="container">
+        <h1 class="display-4">{{ product.name }}</h1>
+        <div class="product">
+            <img id="product-image" src="{{ MEDIA_URL}}{{ product.image }}" class="img-fluid" alt="Responsive image">
+        </div>
+        <p class="product-description lead">{{ product.description }}</p>
         <p>{{ product.price }}</p>
-        
         <form method="post" action="{% url 'add_to_cart' product.id %}">
             {% csrf_token %}
             <div class="input-group">
-                <input type="number" name="quantity" min="0" max="999" class="form-control"placeholder="Quantity">
+                <input type="number" name="quantity" min="0" max="999" class="form-control" placeholder="Quantity">
                 <span class="input-group-btn">
                     <button class="btn btn-success" type="submit">Add</button>
                 </span>
@@ -25,6 +23,4 @@
         </form>
     </div>
 </div>
-{% endfor %}
-</div>
-{% endblock %}
+{% endfor %} {% endblock %}

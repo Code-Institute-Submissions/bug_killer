@@ -14,9 +14,14 @@ https://pixabay.com/en/superhero-girl-speed-runner-534120/
 tshirt
 https://www.pexels.com/photo/person-wearing-superheroes-printed-t-shirt-701771/
 
+superhero-outline
+https://pixabay.com/en/superhero-human-being-power-alive-450419/
+
 Testing
 03/10/2018
 When testing with another user they did not see there posts. Author had to be added at Admin level.
+
+
 
 
 [![Build Status](https://travis-ci.org/Simonbiker/bug_killer.svg?branch=master)](https://travis-ci.org/Simonbiker/bug_killer)
