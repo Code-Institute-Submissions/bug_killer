@@ -4,9 +4,20 @@ from django.utils import timezone
 # This matches up w/ line 8 when you create the foreignkey
 from django.contrib.auth.models import User
 
+STATUS_CHOICES = (
+    ('d', 'done'),
+    ('n', 'nothing'),
+    ('w', 'working'),
+)
+
+class Status(models.Model):
+    title = models.CharField(max_length=100)
+    body = models.TextField()
+    status = models.CharField(max_length=1, choices=STATUS_CHOICES)
+
 class Post(models.Model):
     author = models.ForeignKey(User, null=True, blank=True)
-    title = models.CharField(max_length=200)
+    title = models.CharField(max_length=200,)
     content = models.TextField()
     created_date = models.DateTimeField(auto_now_add=True)
     published_date = models.DateTimeField(blank=True, null=True, default=timezone.now)

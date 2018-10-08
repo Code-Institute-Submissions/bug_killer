@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Post, Status
+from .models import Status
 
 def status_level(modeladmin, request, queryset):
     queryset.update(status='p')
@@ -10,6 +10,4 @@ class StatusAdmin(admin.ModelAdmin):
     ordering = ['title']
     actions = [status_level]
 
-
-admin.site.register(Post)
 admin.site.register(Status, StatusAdmin)
