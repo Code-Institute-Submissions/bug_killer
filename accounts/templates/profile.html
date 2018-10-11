@@ -3,12 +3,38 @@
 {% load bootstrap_tags %}
 {% block page_title %}{{user}}'s Profile{%endblock%} 
 {% block page_heading %}{{user}}'s Profile{% endblock %} 
-{% block content %}
-<div class="container">
+{% block myissues %}
+<div class="container-fluid">
+<div class="row">
+<div class="col-md-2">
+    <div class="card card-cascade">
+        <!-- Card content -->
+        <div class="card-body card-body-cascade text-center">
     
-    <i class="far fa-user"></i><p>{{ profile.email }}</p>
-    <img src="static/img/tshirt.jpg" class="img-fluid" alt="Responsive image">
+            <!-- Title -->
+            <h4 class="card-title"><strong>{{ profile.email }}</strong></h4>
+            <!-- Subtitle -->
+            <h6 class="font-weight-bold indigo-text py-2">Profile</h6>
+            <!-- Text -->
+            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus, ex, recusandae. Facere modi sunt, quod quibusdam.
+            </p>
+            <a href="{% url 'new_post' %}" class="btn btn-primary">New Issue</a>
+        </div>
+    </div>
+    
+    
+    
+    <!--<div class="card " style="width: 18rem;">-->
+    <!--    <img class="card-img-top" src="/media/{{ post.image }}" alt="Card image cap">-->
+    <!--    <div class="card-body">-->
+    <!--        <h5 class="card-title">{{ profile.email }}</h5>-->
+    <!--        <p class="card-text">Your Profile</p>-->
+    <!--        <a href="{% url 'new_post' %}" class="btn btn-primary">New Issue</a>-->
+    <!--    </div>-->
+    <!--</div>-->
 </div>
+
+<div class="col-md-8">
 <div id="accordion">
     {% for post in user_posts %}
         <div class="card">
@@ -35,4 +61,11 @@
         {% endcomment %}
     {% endfor %}
 </div>
+</div>
+</div>
+</div>
 {% endblock %}
+
+
+
+

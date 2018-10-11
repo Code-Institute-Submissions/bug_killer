@@ -1,7 +1,5 @@
 from django.db import models
 from django.utils import timezone
-
-# This matches up w/ line 8 when you create the foreignkey
 from django.contrib.auth.models import User
 
 STATUS_CHOICES = (
@@ -10,13 +8,22 @@ STATUS_CHOICES = (
     ('w', 'working'),
 )
 
-class Status(models.Model):
-    title = models.CharField(max_length=100)
-    body = models.TextField()
-    status = models.CharField(max_length=1, choices=STATUS_CHOICES)
+
+DONE = 'D'
+LOOKING = 'L'
+WORKING = 'W'
+
+STATUS_OPTIONS=(
+    ('D', 'Done'),
+    ('L', 'Looking'),
+    ('W', 'Working'),
+    )
+
 
 class Post(models.Model):
     author = models.ForeignKey(User, null=True, blank=True)
+
+    status_options = models.CharField(max_length=1, choices=STATUS_OPTIONS,  null=True, blank=True)
     title = models.CharField(max_length=200,)
     content = models.TextField()
     created_date = models.DateTimeField(auto_now_add=True)
@@ -25,5 +32,14 @@ class Post(models.Model):
     tag = models.CharField(max_length=30, blank=True, null=True)
     image = models.ImageField(upload_to="img", blank=True, null=True)
     
-    def __unicode__(self):
+    def __str__(self):
+        return self.title
+        
+class Status(models.Model):
+    title = models.CharField(max_length=100)
+    body = models.TextField()
+    status = models.CharField(max_length=1, choices=STATUS_CHOICES)
+    post = models.ForeignKey('posts.Post', on_delete=models.CASCADE, related_name='status')
+
+    def __str__(self):
         return self.title

@@ -1,34 +1,64 @@
-{% extends 'base.html' %} {% load static from staticfiles %} {% load bootstrap_tags %} {% block home %}
-<div class="jumbotron" id="home-heading">
-  <h1 class="display-4">Superhero Bug Killing Team</h1>
-  <p class="lead">When all is lost and the world is coming to an end. Call apon the superhero bug killing team to solve your problem.</p>
-  <img src="static/img/superhero.jpg" class="img-fluid" alt="Responsive image">
-  <hr class="my-4">
-  <p>Sign in and register your first issue.</p>
-  {% if user.is_authenticated %}
-  <a class="btn btn-primary btn-lg" href="{% url 'profile' %}" role="button">Profile</a>
-  <a class="btn btn-primary btn-lg" href="{% url 'logout' %}" role="button">Logout</a> {% else %}
-  <a class="btn btn-primary btn-lg" href="{% url 'login' %}" role="button" data-toggle="modal" data-target="#loginModal">Login</a>
-  <a class="btn btn-primary btn-lg" href="{% url 'register' %}" role="button" data-toggle="modal" data-target="#registerModal">Register</a> {% endif %}
+{% extends 'base.html' %} 
+{% load static from staticfiles %} 
+{% load bootstrap_tags %} 
+{% block home %}
+<div class="jumbotron p-0" id="home-heading">
+  <!-- Card image -->
+  <div class="view overlay rounded-top">
+    <img src="static/img/superhero.jpg" class="img-fluid" alt="Sample image">
+  </div>
+  <!-- Card content -->
+  <div class="card-body text-center mb-3">
+    <!-- Title -->
+    <h3 class="card-title h3 my-4"><strong>Superhero Bug Killing Team</strong></h3>
+    <!-- Text -->
+    <p class="card-text py-2">Sign in or register your first issue.</p>
+    {% if user.is_authenticated %}
+    <a class="btn btn-primary btn-rounded mb-4" href="{% url 'profile' %}" role="button">Profile</a>
+    <a class="btn btn-primary btn-rounded mb-4" href="{% url 'logout' %}" role="button">Logout</a> 
+    {% else %}
+    <a class="btn btn-primary btn-rounded mb-4" href="{% url 'login' %}" role="button" data-toggle="modal" data-target="#loginModal">Login</a>
+    <a class="btn btn-primary btn-rounded mb-4" href="{% url 'register' %}" role="button" data-toggle="modal" data-target="#registerModal">Register</a>
+    {% endif %}
+  </div>
 </div>
 
 <div class="card-deck">
-  <div class="card">
-    <img class="card-img-top" src="static/img/superhero-outline.jpg" alt="Card image cap">
+  <!-- Card -->
+  <div class="card mb-4">
+    <!--Card image-->
+    <div class="view view-cascade overlay">
+      <img class="card-img-top" src="static/img/superhero-outline.jpg" alt="Card image cap">
+      <a href="{% url 'products' %}">
+        <div class="mask rgba-white-slight"></div>
+      </a>
+    </div>
+    <!--Card content-->
     <div class="card-body">
-      <h5 class="card-title">Choose your Super</h5>
+      <h5 class="pink-text pb-2 pt-1"><i class="fa fa-code"></i> Products</h5>
+      <h4 class="card-title">Choose your Super</h4>
       <p class="card-text">We prodive a free check of your code but will be put into a qenue.</p>
       <a href="{% url 'products' %}" class="btn btn-primary" role="button" aria-pressed="true">Products</a>
     </div>
   </div>
-  
-  <div class="card">
-    <img class="card-img-top" src="static/img/ironman.jpg" alt="Card image cap">
+  <!-- Card -->
+  <!-- Card -->
+  <div class="card mb-4">
+    <!--Card image-->
+    <div class="view overlay">
+      <img class="card-img-top" src="static/img/ironman.jpg" alt="Card image cap">
+      <a href="{% url 'login' %}">
+        <div class="mask rgba-white-slight"></div>
+      </a>
+    </div>
+    <!--Card content-->
     <div class="card-body">
-      <h5 class="card-title">View your Profile</h5>
+      <h5 class="pink-text pb-2 pt-1"><i class="fa fa-user-circle"></i> Profile</h5>
+      <h4 class="card-title">View your Profile</h4>
       <p class="card-text">All of your issues that are been looked at can be found here. Any that have been solved will remain here for future use making an unstoppable Superhero coder.</p>
-      <a href="{% url 'login' %}" type="submit" class="btn btn-success">Login</a>
+      <a href="{% url 'login' %}" class="btn btn-primary" role="button" aria-pressed="true">Login</a>
     </div>
   </div>
+  <!-- Card -->
 </div>
 {% endblock %}
