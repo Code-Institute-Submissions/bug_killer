@@ -2,12 +2,6 @@ from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
 
-STATUS_CHOICES = (
-    ('d', 'done'),
-    ('n', 'nothing'),
-    ('w', 'working'),
-)
-
 
 DONE = 'D'
 LOOKING = 'L'
@@ -38,7 +32,7 @@ class Post(models.Model):
 class Status(models.Model):
     title = models.CharField(max_length=100)
     body = models.TextField()
-    status = models.CharField(max_length=1, choices=STATUS_CHOICES)
+    status = models.CharField(max_length=1, choices=STATUS_OPTIONS)
     post = models.ForeignKey('posts.Post', on_delete=models.CASCADE, related_name='status')
 
     def __str__(self):
