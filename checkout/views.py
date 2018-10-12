@@ -16,6 +16,7 @@ def checkout(request):
         order_form = OrderForm(request.POST)
         payment_form = MakePaymentForm(request.POST)
         
+        print(request.POST)
         if order_form.is_valid() and payment_form.is_valid():
             order = order_form.save(commit=False)
             order.date = timezone.now()
@@ -25,6 +26,7 @@ def checkout(request):
             total = 0
             for id, quantity in cart.items():
                 product = get_object_or_404(Product, pk=id)
+                total += quantity * product.price
                 order_line_item = OrderLineItem(
                     order = order,
                     product = product,
@@ -32,6 +34,10 @@ def checkout(request):
                     )
                 order_line_item.save()  
             
+            print("check code")
+            print(payment_form.cleaned_data)
+            print("payment_form.cleaned_data['stripe_id']", payment_form.cleaned_data['stripe_id'])
+
             try:
                 customer = stripe.Charge.create(
                     amount = int(total * 100),

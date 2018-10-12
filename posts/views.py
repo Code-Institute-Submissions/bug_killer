@@ -22,7 +22,11 @@ def post_detail(request, pk):
     post = get_object_or_404(Post, pk=pk)
     post.views += 1
     post.save()
-    return render(request, "postdetail.html", {'post': post})
+    
+    statuses = post.status.all().order_by('id')
+    print("statuses", statuses)
+    
+    return render(request, "postdetail.html", {'post': post, 'statuses': statuses})
 
 def create_or_edit_post(request, pk=None):
     """
@@ -31,7 +35,7 @@ def create_or_edit_post(request, pk=None):
     """
     
     post = get_object_or_404(Post, pk=pk) if pk else None
-    
+
     if request.method == "POST":
         form = BlogPostForm(request.POST, request.FILES, instance=post)
         if form.is_valid():

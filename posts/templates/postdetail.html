@@ -10,7 +10,13 @@
                 <p><span class="boldtext">Tag:</span> {{ post.tag }}</p>
                 <hr>
                 <p><span class="boldtext">Status:</span> {{ post.status_options }}</p>
-                <p><span class="boldtext">Comments:</span> {{ status.status.body }}</p>
+                <p><span class="boldtext">Comments:</span></p>
+                {% for s in statuses %}
+                    Status: {{s.get_status_display}} <br>
+                    Title: {{s.title}} <br>
+                    Body: {{s.body}} <br>
+                    <br><br>
+                {% endfor %}
                 <a href="{% url 'get_posts' %}" class="btn btn-default">Back To Blog</a>
                 <a href="{% url 'edit_post' post.id %}" class="btn btn-default">Edit Post</a>
             </div>
