@@ -21,17 +21,6 @@
             <a href="{% url 'new_post' %}" class="btn btn-primary">New Issue</a>
         </div>
     </div>
-    
-    
-    
-    <!--<div class="card " style="width: 18rem;">-->
-    <!--    <img class="card-img-top" src="/media/{{ post.image }}" alt="Card image cap">-->
-    <!--    <div class="card-body">-->
-    <!--        <h5 class="card-title">{{ profile.email }}</h5>-->
-    <!--        <p class="card-text">Your Profile</p>-->
-    <!--        <a href="{% url 'new_post' %}" class="btn btn-primary">New Issue</a>-->
-    <!--    </div>-->
-    <!--</div>-->
 </div>
 
 <div class="col-md-8">
@@ -40,14 +29,14 @@
         <div class="card">
             <div class="card-header" id="heading-{{ forloop.counter }}" data-toggle="collapse" data-target="#collapse-{{ forloop.counter }}"  aria-expanded="true" aria-controls="collapse-{{ forloop.counter }}">
                 <h5 class="mb-0">
-                    {{ post.title }}: {{ post.author }}
+                    {{ post.title }}: {{ post.author }} <i class="fas fa-arrows-alt-v"></i>
                 </h5>
             </div>
     
             <div id="collapse-{{ forloop.counter }}" class="collapse show" aria-labelledby="heading-{{ forloop.counter }}" data-parent="#accordion">
                 <div class="card-body">
                     <p>{{ post.content|truncatewords:30 }}</p>
-                    <p><a href="{% url 'post_detail' post.id %}" class="btn btn-default">Read more</a></p>
+                    <p><a href="{% url 'post_detail' post.id %}" class="btn btn-default">Post Details: Here you will be able to edit your issue and see feedback from us</a></p>
                     <p><span class="boldtext">Published on:</span> {{ post.published_date }} </p>
                     <p><span class="boldtext">Views:</span> {{post.views}}</p>
                     <p><span class="boldtext">Tag:</span> {{ post.tag }}</p>
@@ -65,7 +54,4 @@
 </div>
 </div>
 {% endblock %}
-
-
-
 

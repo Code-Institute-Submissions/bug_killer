@@ -7,12 +7,14 @@
     {% for item in cart_items %}
     <div class="jumbotron">
         <div class="panel-body">
-            <img src="{{ MEDIA_URL}}{{ product.image }}" class="rounded float-left" alt="Sample image">
+            <div class="view overlay rounded-top">
+                <img src="{{ MEDIA_URL}}{{ item.product.image }}" class="img-fluid" alt="Sample image">
+            </div>
             <div class="caption">
                 <h3>{{ item.product.name }}</h3>
                 <p class="product-description">{{ item.product.description }}</p>
-                <p>{{ item.quantity }}</p>
-                <p>{{ item.product.price }}</p>
+                <p>Quantity {{ item.quantity }}</p>
+                <p>Price €{{ item.product.price }}</p>
             </div>
         </div>
     </div>
@@ -21,7 +23,7 @@
 <div class="jumbotron">
 <div class="row">
     <p> Total</p>
-    <p><span class="glyphicon glyphicon-euro" aria-hidden="true"></span>{{ total }}</p>
+    <p><span class="glyphicon glyphicon-euro" aria-hidden="true"></span> €{{ total }}</p>
 </div>
 
 <form role="form" method="post" id="payment-form" action="{% url 'checkout' %}">
@@ -30,14 +32,14 @@
         <div class="alert-message block-message error" id="stripe-error-message"></div>
     </div>
     
-    <div class="form-group col-md-6">
+    <div class="form-group">
         {{ order_form |as_bootstrap }}
     </div>
-    <div class="form-group col-md-6">
+    <div class="form-group">
         {{ payment_form |as_bootstrap }}
     </div>
     {% csrf_token %}
-    <div class="form-group col-md-12">
+    <div class="form-group">
         <input class="btn btn-primary" id="submit_payment_btn" type="submit" name="commit" value="Submit Payment"/>
     </div>
 </form>

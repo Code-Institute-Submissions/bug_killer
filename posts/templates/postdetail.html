@@ -8,18 +8,25 @@
                 <p><span class="boldtext">Published on:</span> {{ post.published_date }} </p>
                 <p><span class="boldtext">Views:</span> {{post.views}}</p>
                 <p><span class="boldtext">Tag:</span> {{ post.tag }}</p>
-                <hr>
-                <p><span class="boldtext">Status:</span> {{ post.status_options }}</p>
-                <p><span class="boldtext">Comments:</span></p>
-                {% for s in statuses %}
-                    Status: {{s.get_status_display}} <br>
-                    Title: {{s.title}} <br>
-                    Body: {{s.body}} <br>
-                    <br><br>
-                {% endfor %}
-                <a href="{% url 'get_posts' %}" class="btn btn-default">Back To Blog</a>
+                
                 <a href="{% url 'edit_post' post.id %}" class="btn btn-default">Edit Post</a>
             </div>
         </div>
     </div>
+    <div class="col-md-10 col-sm-9">
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container">
+                <h2 class="display-4">Superhero Feedback</h2>
+                <p>Problem solved I know we are great, we like cake</p>
+                {% for s in statuses %} 
+                Status: {{s.get_status_display}} <br> 
+                Title: {{s.title}} <br> 
+                Body: {{s.body}} <br>
+                <br><br>
+                {% endfor %}
+                <a href="{% url 'products' %}" class="btn btn-default">Upgrade</a>
+                <a href="{% url 'profile' %}" class="btn btn-default">Profile</a>
+            </div>
+        </div>    
+    </div>    
 {% endblock %}

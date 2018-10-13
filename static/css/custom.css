@@ -14,3 +14,11 @@ body{
     margin-top: 15px;
     margin-bottom: 15px;
 }
+
+h3{
+    font-size: 3rem;
+}
+
+#home-intro{
+    font-size: 1.5rem;
+}

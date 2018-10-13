@@ -5,11 +5,13 @@
 <div class="row row-flex">
     {% for item in cart_items %}
     <div class="jumbotron">
-        <img src="{{ MEDIA_URL}}{{ product.image }}" class="img-fluid" alt="Sample image">
+        <div class="view overlay rounded-top">
+        <img src="{{ MEDIA_URL}}{{ item.product.image }}" class="img-fluid" alt="Sample image">
+        </div>
         <div class="caption">
             <h3>{{ item.product.name }}</h3>
             <p class="product-description">{{ item.product.description }}</p>
-            <p>{{ item.product.price }}</p>
+            <p>€{{ item.product.price }}</p>
             <p>
                 <form class="form-inline" method="post" action="{% url 'adjust_cart' item.id %}">
                     {% csrf_token %}
@@ -33,7 +35,7 @@
 {% endfor %}
 <div class="card card-body">
     <h4 class="card-title">Total</h4>
-    <p><span class="glyhicon glyhicon-euro" aril-hidden="true"></span>{{ total }}</p>
+    <p><span class="glyhicon glyhicon-euro" aril-hidden="true"></span>€{{ total }}</p>
     <a href="{% url 'checkout' %}" class="btn btn-success btn-sm" role="button"><span class="glyhicon glyhicon-ok-sign" aril-hidden="true"></span>Checkout</a>
 </div>
 {% endblock %}
