@@ -57,12 +57,12 @@ The profile page (my issues) I would have liked to include a strong profile card
 Where the user could put their picture in link there GitHub and slack accounts. It would make it easier for the problem solver to communicate with the user. 
 
 # Technologies Used
-Jquery: DOM manipulation.
-Font-Awesome: Cart image and others for products and profile cards.
-Bootstrap 4: styling and functionality.
-Stripe: Payment usage and completion. 
-Django: Building modules, using database and admin tool.
-Python: Back end.
+1. Jquery: DOM manipulation.
+2. Font-Awesome: Cart image and others for products and profile cards.
+3. Bootstrap 4: styling and functionality.
+4. Stripe: Payment usage and completion. 
+5. Django: Building modules, using database and admin tool.
+6. Python: Back end.
 
 
 # Testing
