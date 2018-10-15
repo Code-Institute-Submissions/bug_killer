@@ -11,7 +11,6 @@ If they want a fast response with 24 hours they will have to pay using the produ
 All other posts will be treated as a first in first out logic.  
 Django built-in  app like 404 pages 
 
-# Heroku hosting
 https://bug-killer-app.herokuapp.com/
 
 Wireframes can be found in docs folder/ wireframes
