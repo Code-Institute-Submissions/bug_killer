@@ -10,7 +10,7 @@
   <!-- Card content -->
   <div class="card-body text-center mb-3">
     <h3 class="card-title my-4" ><strong>Superhero Bug Killing Team</strong></h3>
-    <p id ="home-intro">We provide a free check of your code. If you need it fixed quickly you can upgrade for a faster response, simply choose Superhero response.</p>
+    <p id ="home-intro">We provide a free check of your code. If you need it fixed quickly, you can upgrade and receive a faster reply. Simply choose Superhero response.</p>
     <p class="card-text py-2">Sign in or register to post your first issue that our superheros can fix.</p>
     {% if user.is_authenticated %}
     <a class="btn btn-primary btn-rounded mb-4" href="{% url 'profile' %}" role="button">Profile</a>
@@ -35,7 +35,7 @@
     <div class="card-body">
       <h5 class="pink-text pb-2 pt-1"><i class="fa fa-code"></i> Products</h5>
       <h4 class="card-title">Choose your Super</h4>
-      <p class="card-text">Here you will find what we provide. From a free check of code to a powerful superhero response.</p>
+      <p class="card-text">Here you will find what we provide. From free code checking, to a powerful superhero response.</p>
       <a href="{% url 'products' %}" class="btn btn-primary" role="button" aria-pressed="true">Products</a>
     </div>
   </div>
